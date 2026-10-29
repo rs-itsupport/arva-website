@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "motion-prompt": {
+      "source": "showheyohtaki/motion-prompt",
+      "sourceType": "github",
+      "skillPath": "skills/motion-prompt/SKILL.md",
+      "computedHash": "601030126dd3e545728b1f4f3bdf1d50651106e09972bb215c668a9e256d5321"
+    }
+  }
+}
