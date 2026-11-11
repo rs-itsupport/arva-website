@@ -22,7 +22,10 @@ import {
   Mail,
   Globe,
   MapPin,
+  X,
+  FileText,
 } from "lucide-react";
+import { useState, type ReactNode } from "react";
 import { Logo, NAV } from "./SiteHeader";
 import building from "@/assets/hero-building.jpg";
 import capHuman from "@/assets/cap-human.jpg";
@@ -44,7 +47,9 @@ import contribMeetingMaruf from "@/assets/contrib-meeting-maruf-amin.png";
 import contribRoundtable from "@/assets/contrib-roundtable-meeting.png";
 import contribForumTourism from "@/assets/contrib-forum-islamic-tourism.png";
 import contribWorkshopMilenial from "@/assets/contrib-workshop-milenial.png";
-import type { ReactNode } from "react";
+import pillarCompetitiveness from "@/assets/pillar-competitiveness.jpg";
+import pillarMarketingData from "@/assets/pillar-marketing-data.jpg";
+import pillarEcosystemInstitutions from "@/assets/pillar-ecosystem-institutions.jpg";
 
 export function PageIntro({
   title,
@@ -80,24 +85,7 @@ export function Hero() {
           <br />
           <span className="text-burgundy">Building Sustainable Prosperity.</span>
         </h1>
-        <p className="mt-6 text-sm text-muted-foreground max-w-xl leading-relaxed" data-reveal="up" data-reveal-delay="150">
-          A leading ecosystem platform empowering human capital, fostering transparent governance, and unlocking
-          integrated strategic value across industries.
-        </p>
-        <div className="mt-10 flex flex-wrap items-center gap-6" data-reveal="up" data-reveal-delay="200">
-          <a
-            href="#we-aim"
-            className="inline-flex items-center gap-2 rounded-none border border-foreground/30 px-5 py-3 text-xs uppercase tracking-wider transition-colors hover:border-burgundy hover:text-burgundy"
-          >
-            We Aim &amp; Commitment <span className="text-burgundy">↓</span>
-          </a>
-          <Link
-            to="/background"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-burgundy font-medium hover:underline underline-offset-4"
-          >
-            Explore Background <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
-        </div>
+
       </div>
       <figure className="relative" data-reveal="scale" data-reveal-delay="150">
         <div className="overflow-hidden border border-border/80 shadow-sm">
@@ -130,19 +118,19 @@ export function WeAim() {
         <div data-reveal="scale">
           <Logo className="mx-auto h-12 md:h-14" />
         </div>
-        <p className="mt-5 font-serif text-xl leading-relaxed md:text-2xl text-foreground" data-reveal="up" data-reveal-delay="100">
+        <p className="mt-5 font-serif text-lg leading-relaxed md:text-xl text-foreground" data-reveal="up" data-reveal-delay="100">
           We aim to be a leading platform connecting people, academia, businesses, industry, NGOs, government, media,
           and other stakeholders to advance responsible governance, sustainable value creation, and shared prosperity,
           enhancing human well-being across generations.
         </p>
         <div className="mx-auto my-10 h-px w-16 bg-burgundy/60" data-reveal="scale" data-reveal-delay="150" />
-        <p className="mt-5 font-serif text-base leading-relaxed md:text-lg text-burgundy font-medium" data-reveal="up" data-reveal-delay="200">
+        <p className="mt-5 font-serif text-lg leading-relaxed md:text-xl text-foreground" data-reveal="up" data-reveal-delay="200">
           Our Commitment to foster a dynamic and collaborative platform for innovation, knowledge exchange, and
           strategic partnerships, transforming shared challenges into opportunities for sustainable growth,
-          resilience, and lasting impact; advancing through three core strategic initiatives:{" "}
-          <span className="text-foreground font-semibold">Sustainable Human Capital Development</span>,{" "}
-          <span className="text-foreground font-semibold">Responsible &amp; Sustainable Governance</span>, and{" "}
-          <span className="text-foreground font-semibold">Property/Real Estate Investment</span>, creating long-term
+          resilience, and lasting impact; advancing through three core strategic initiatives:
+          Sustainable Human Capital Development,
+          Responsible &amp; Sustainable Governance, and
+          Property/Real Estate Investment, creating long-term
           value and shared prosperity for present and future generations.
         </p>
       </div>
@@ -159,8 +147,8 @@ export function StrategicPillarsSection() {
           Three Core Strategic Acceleration Pillars
         </h2>
         <p className="mt-3 text-sm text-muted-foreground max-w-2xl">
-          Key strategic frameworks driving destination competitiveness, digital marketing platforms, and institutional
-          capacity building across global halal markets.
+          Key strategic frameworks advancing sustainable industry competitiveness, marketing development and big data
+          platforms, and ecosystem and institutional development across industries and business sectors.
         </p>
       </div>
       <PillarGrid />
@@ -559,78 +547,287 @@ export function AcceleratorSection() {
 /* =========================================================================
    5. STRATEGIC INITIATIVES & ROADMAP 2026-2045 (Slide 7 of booklet)
    ========================================================================= */
-export const PILLARS = [
+export interface PillarItem {
+  title: string;
+  type: string;
+  desc: string;
+  icon: typeof Award;
+}
+
+export interface PillarData {
+  title: string;
+  subtitle: string;
+  image: string;
+  items: PillarItem[];
+}
+
+export const PILLARS: PillarData[] = [
   {
-    title: "Enhancing Industry and Destination Competitiveness",
+    title: "Enhancing industry sustainable competitiveness",
     subtitle: "Pillar 01",
-    items: ["Ratings, Rankings & Awards", "Research & Reports"],
-    badges: ["Global Muslim Travel Index (GMTI)", "INDONESIA Muslim Travel Index", "Muslim-Friendly Rating Program"],
+    image: pillarCompetitiveness,
+    items: [
+      {
+        title: "Ratings, Rankings & Awards",
+        type: "Awards, Ranking Indices & Metrics",
+        desc: "Dokumentasi pemeringkatan, rekognisi, dan metrik daya saing industri",
+        icon: Award,
+      },
+      {
+        title: "Research & Reports",
+        type: "Research Publications & Whitepapers",
+        desc: "Publikasi riset analitis, whitepaper, dan laporan berkala industri",
+        icon: BookOpen,
+      },
+    ],
   },
   {
     title: "Marketing Development and Big Data Platform",
     subtitle: "Pillar 02",
+    image: pillarMarketingData,
     items: [
-      "International Halal in Tourism Summit",
-      "Familiarization Trips, Sales Missions, and B2B & B2C Travel Fairs",
-      "Muslim-Friendly Tourism Guide",
+      {
+        title: "International Trade and Investment Summit",
+        type: "Summit Proceedings & Media Archive",
+        desc: "Dokumentasi forum summit, materi pleno, dan galeri konferensi",
+        icon: Globe,
+      },
+      {
+        title: "International Trade & Investment Expo and Business Forum",
+        type: "Expo Photography & Business Dossier",
+        desc: "Dokumentasi eksibisi expo, katalog pameran, dan forum bisnis",
+        icon: Building2,
+      },
+      {
+        title: "Trade and Business Directory",
+        type: "Platform Database & Directory Profiles",
+        desc: "Basis data direktori bisnis, profil kemitraan, dan indeks terpadu",
+        icon: Layers,
+      },
     ],
-    badges: ["International Halal in Tourism Summit", "Muslim-Friendly Tourism Guide Platform"],
   },
   {
     title: "Ecosystem and Institutional Development",
     subtitle: "Pillar 03",
-    items: ["Capacity Building", "Technical Assistance and Training", "Advocacy"],
-    badges: ["Institutional MOU Alliances", "Cross-Sector Governance Framework"],
+    image: pillarEcosystemInstitutions,
+    items: [
+      {
+        title: "Capacity Building",
+        type: "Human Capital Modules & Workshop Media",
+        desc: "Materi pengembangan talenta, lokakarya, dan arsip modul",
+        icon: GraduationCap,
+      },
+      {
+        title: "Technical Assistance and Training",
+        type: "Technical Guides & Certification Files",
+        desc: "Panduan asistensi teknis, kurikulum pelatihan, dan sertifikasi",
+        icon: Cog,
+      },
+      {
+        title: "Advocacy",
+        type: "Policy Papers & Strategic Alliance Briefs",
+        desc: "Kertas kerja kebijakan, naskah advokasi, dan dokumen aliansi strategis",
+        icon: Handshake,
+      },
+    ],
   },
 ];
 
-export function PillarGrid() {
-  const delays = ["100", "200", "300"];
-  return (
-    <div className="grid gap-8 md:grid-cols-3">
-      {PILLARS.map((p, idx) => (
-        <div
-          key={p.title}
-          data-reveal="up"
-          data-reveal-delay={delays[idx % delays.length]}
-          className="flex flex-col justify-between border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:border-burgundy/60 hover:shadow-md hover-card-elevate"
-        >
-          <div>
-            <div className="flex items-center justify-between border-b border-border pb-3">
-              <span className="eyebrow !text-burgundy">{p.subtitle}</span>
-              <CheckCircle2 className="h-4 w-4 text-burgundy" />
-            </div>
-            <h3 className="mt-4 font-sans text-xs font-bold uppercase tracking-wider text-foreground leading-relaxed">
-              {p.title}
-            </h3>
-            <ul className="dash-list mt-6 space-y-3 text-xs leading-relaxed text-muted-foreground">
-              {p.items.map((i) => (
-                <li key={i} className="text-foreground/90 font-medium">
-                  {i}
-                </li>
-              ))}
-            </ul>
-          </div>
+export function PillarDetailModal({
+  item,
+  pillarSubtitle,
+  pillarTitle,
+  onClose,
+}: {
+  item: PillarItem;
+  pillarSubtitle: string;
+  pillarTitle: string;
+  onClose: () => void;
+}) {
+  const ItemIcon = item.icon;
 
-          {/* Badges / Key Programs */}
-          <div className="mt-8 border-t border-border pt-4">
-            <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold mb-2">
-              Featured Programs:
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn"
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto bg-card border border-border shadow-2xl p-6 sm:p-8 text-foreground"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="flex items-start justify-between border-b border-border/70 pb-4">
+          <div className="pr-4">
+            <p className="eyebrow !text-burgundy">
+              {pillarSubtitle} • {pillarTitle}
             </p>
-            <div className="flex flex-wrap gap-1.5">
-              {p.badges.map((b) => (
-                <span
-                  key={b}
-                  className="rounded-none bg-cream px-2 py-1 text-[10px] font-medium text-navy border border-border/60"
-                >
-                  {b}
-                </span>
-              ))}
+            <h2 className="mt-1 font-serif text-2xl text-foreground font-normal leading-snug">
+              {item.title}
+            </h2>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="p-1 text-muted-foreground hover:text-burgundy transition-colors cursor-pointer shrink-0"
+            aria-label="Tutup"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        {/* Minimalist Placeholder Slot for Photo / Paper */}
+        <div className="my-5 border border-dashed border-border/80 bg-cream/30 p-5 text-center">
+          <div className="mx-auto flex h-9 w-9 items-center justify-center bg-white border border-border/60 text-burgundy mb-2">
+            <ItemIcon className="h-4 w-4" />
+          </div>
+          <p className="font-sans text-xs font-semibold uppercase tracking-wider text-foreground">
+            {item.type}
+          </p>
+          <p className="mt-1 text-[11px] text-muted-foreground font-sans">
+            Slot kerangka kosong untuk foto dokumentasi, publikasi riset, atau berkas resmi mendatang.
+          </p>
+        </div>
+
+        {/* Dummy Content (Lorem Ipsum) */}
+        <div className="space-y-3 text-xs sm:text-sm text-muted-foreground leading-relaxed font-sans">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+          <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+
+        {/* Minimalist Footer */}
+        <div className="mt-6 border-t border-border/70 pt-4 flex items-center justify-between">
+          <span className="text-[10px] uppercase tracking-wider text-muted-foreground font-mono">
+            ARVA.id • Draft Slot
+          </span>
+          <button
+            type="button"
+            onClick={onClose}
+            className="px-4 py-1.5 border border-border text-xs uppercase tracking-wider text-foreground hover:border-burgundy hover:text-burgundy transition-colors cursor-pointer"
+          >
+            Tutup
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function PillarGrid() {
+  const [activeModalItem, setActiveModalItem] = useState<{
+    item: PillarItem;
+    pillarSubtitle: string;
+    pillarTitle: string;
+  } | null>(null);
+
+  const delays = ["100", "200", "300"];
+
+  return (
+    <>
+      <div className="grid gap-8 md:grid-cols-3">
+        {PILLARS.map((p, idx) => (
+          <div
+            key={p.title}
+            data-reveal="up"
+            data-reveal-delay={delays[idx % delays.length]}
+            className="group flex flex-col justify-between border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:border-burgundy/60 hover:shadow-md hover-card-elevate"
+          >
+            <div>
+              {/* Pillar Header Meta */}
+              <div className="flex items-center justify-between border-b border-border pb-3">
+                <span className="eyebrow !text-burgundy">{p.subtitle}</span>
+                <span className="font-serif text-xs font-semibold text-muted-foreground">0{idx + 1}</span>
+              </div>
+
+              {/* Minimalist Illustration Icon */}
+              <div className="mt-4 mb-5 overflow-hidden border border-border/60 bg-white aspect-[16/10] relative flex items-center justify-center p-3">
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  className="h-full w-auto max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+
+              {/* Pillar Title */}
+              <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-foreground leading-relaxed min-h-[32px] border-b border-border/60 pb-3">
+                {p.title}
+              </h3>
+
+              {/* Point Templates / Kerangka Kosong Dokumen & Publikasi */}
+              <div className="mt-5 space-y-3">
+                {p.items.map((item, itemIdx) => {
+                  const ItemIcon = item.icon;
+                  return (
+                    <div
+                      key={item.title}
+                      onClick={() =>
+                        setActiveModalItem({
+                          item,
+                          pillarSubtitle: p.subtitle,
+                          pillarTitle: p.title,
+                        })
+                      }
+                      className="border border-border/80 bg-cream/30 p-3 transition-all duration-300 hover:border-burgundy/60 hover:bg-cream/60 hover:shadow-sm cursor-pointer group/item"
+                      title="Klik untuk membuka pratinjau dokumen / publikasi"
+                    >
+                      {/* Item Point Header */}
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="flex items-start gap-2">
+                          <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center bg-burgundy/10 text-burgundy text-[9px] font-bold">
+                            0{itemIdx + 1}
+                          </span>
+                          <h4 className="font-sans text-xs font-semibold text-foreground leading-snug group-hover/item:text-burgundy transition-colors">
+                            {item.title}
+                          </h4>
+                        </div>
+                        <span className="text-[10px] text-burgundy font-serif font-semibold opacity-0 group-hover/item:opacity-100 transition-opacity">
+                          Buka ↗
+                        </span>
+                      </div>
+
+                      {/* Blank Frame / Media & Paper Placeholder Slot */}
+                      <div className="mt-2.5 flex items-center justify-between border border-dashed border-border/90 bg-white/80 px-2.5 py-2 transition-colors group-hover/item:border-burgundy/40 group-hover/item:bg-white">
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="flex h-6 w-6 shrink-0 items-center justify-center bg-cream border border-border/60 text-burgundy">
+                            <ItemIcon className="h-3 w-3" />
+                          </div>
+                          <div className="min-w-0">
+                            <p className="truncate text-[10px] uppercase tracking-wider text-muted-foreground font-medium">
+                              {item.type}
+                            </p>
+                            <p className="truncate text-[9px] text-muted-foreground/70">
+                              {item.desc}
+                            </p>
+                          </div>
+                        </div>
+                        <span className="shrink-0 text-[8px] uppercase tracking-wider text-burgundy font-semibold px-1.5 py-0.5 bg-burgundy/5 border border-burgundy/15 ml-2">
+                          Buka Pratinjau
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+
+      {/* Pop-up Modal Detail when a point is clicked */}
+      {activeModalItem && (
+        <PillarDetailModal
+          item={activeModalItem.item}
+          pillarSubtitle={activeModalItem.pillarSubtitle}
+          pillarTitle={activeModalItem.pillarTitle}
+          onClose={() => setActiveModalItem(null)}
+        />
+      )}
+    </>
   );
 }
 
@@ -842,11 +1039,6 @@ export function StrategicInitiativesSection() {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* 3 Core Strategic Pillars */}
-      <div className="mt-12">
-        <PillarGrid />
       </div>
     </section>
   );

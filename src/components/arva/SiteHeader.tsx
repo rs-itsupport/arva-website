@@ -6,8 +6,7 @@ import logo from "@/assets/arva-logo.png";
 export const NAV = [
   { to: "/", label: "Home" },
   { to: "/background", label: "Background" },
-  { to: "/capabilities", label: "Capabilities" },
-  { to: "/#contact", label: "Contact" },
+  { to: "/contact", label: "Contact" },
 ] as const;
 
 export function Logo({ className = "h-8" }: { className?: string }) {
@@ -22,20 +21,11 @@ export function SiteHeader() {
     if (to === "/") {
       return location.pathname === "/" && !location.hash;
     }
-    if (to === "/#contact") {
-      return location.hash === "#contact" || location.pathname === "/contact";
-    }
-    return location.pathname.startsWith(to);
+    return location.pathname === to || location.pathname.startsWith(`${to}/`);
   };
 
-  const handleNavClick = (to: string) => {
+  const handleNavClick = (_to?: string) => {
     setOpen(false);
-    if (to === "/#contact" && location.pathname === "/") {
-      const el = document.getElementById("contact");
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      }
-    }
   };
 
   return (

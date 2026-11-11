@@ -3,7 +3,6 @@ import {
   Hero,
   WeAim,
   StrategicPillarsSection,
-  NetworkSection,
   ContributionSection,
   AcknowledgementSection,
   ContactSection,
@@ -23,10 +22,7 @@ export function HomePage() {
       {/* Three Core Strategic Acceleration Pillars */}
       <StrategicPillarsSection />
 
-      {/* 2. Section Our Network */}
-      <NetworkSection />
-
-      {/* 3. Section Our Contribution */}
+      {/* 2. Section Our Contribution */}
       <ContributionSection />
 
       {/* 4. Section Our Acknowledgement */}

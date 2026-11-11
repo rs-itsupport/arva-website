@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { RootLayout } from "@/components/layout/RootLayout";
 import { HomePage } from "@/pages/Home";
 import { BackgroundPage } from "@/pages/Background";
-import { CapabilitiesPage } from "@/pages/Capabilities";
 import { ContactPage } from "@/pages/Contact";
 import { NotFoundPage } from "@/pages/NotFound";
 import { UnderConstruction } from "@/pages/UnderConstruction";
@@ -64,12 +63,12 @@ export function App() {
           <Route path="/" element={<RootLayout />}>
             <Route index element={<HomePage />} />
             <Route path="background" element={<BackgroundPage />} />
-            <Route path="capabilities" element={<CapabilitiesPage />} />
+            <Route path="capabilities" element={<Navigate to="/" replace />} />
             {/* Legacy or direct routes redirect smoothly to their respective landing sections */}
             <Route path="strategic-initiatives" element={<Navigate to="/background" replace />} />
             <Route path="contribution" element={<Navigate to="/#our-contribution" replace />} />
             <Route path="acknowledgement" element={<Navigate to="/#our-acknowledgement" replace />} />
-            <Route path="network" element={<Navigate to="/#our-network" replace />} />
+            <Route path="network" element={<Navigate to="/" replace />} />
             <Route path="contact" element={<ContactPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
