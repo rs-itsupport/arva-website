@@ -1,12 +1,6 @@
 import { useEffect } from "react";
-import {
-  Hero,
-  WeAim,
-  StrategicPillarsSection,
-  ContributionSection,
-  AcknowledgementSection,
-  ContactSection,
-} from "@/components/arva/sections";
+import { Hero, WeAim } from "@/components/arva/sections";
+import { CapabilitiesOverview, ContributionsSection, AcknowledgementsSection } from "@/components/arva/profile";
 
 export function HomePage() {
   useEffect(() => {
@@ -15,21 +9,11 @@ export function HomePage() {
 
   return (
     <>
-      {/* 1. Section Home (Hero + We Aim & Commitment) */}
       <Hero />
       <WeAim />
-
-      {/* Three Core Strategic Acceleration Pillars */}
-      <StrategicPillarsSection />
-
-      {/* 2. Section Our Contribution */}
-      <ContributionSection />
-
-      {/* 4. Section Our Acknowledgement */}
-      <AcknowledgementSection />
-
-      {/* 5. Section Contact */}
-      <ContactSection />
+      <CapabilitiesOverview />
+      <ContributionsSection />
+      <AcknowledgementsSection />
     </>
   );
 }

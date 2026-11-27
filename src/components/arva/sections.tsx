@@ -25,8 +25,9 @@ import {
   X,
   FileText,
 } from "lucide-react";
-import { useState, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { Logo, NAV } from "./SiteHeader";
+import { SUB_PILLAR_COUNTS } from "./portfolio";
 import building from "@/assets/hero-building.jpg";
 import capHuman from "@/assets/cap-human.jpg";
 import capGov from "@/assets/cap-governance.jpg";
@@ -88,17 +89,13 @@ export function Hero() {
 
       </div>
       <figure className="relative" data-reveal="scale" data-reveal-delay="150">
-        <div className="overflow-hidden border border-border/80 shadow-sm">
+        <div className="overflow-hidden border border-border/80">
           <img
             src={building}
             alt="ARVA sustainable architecture headquarters"
-            className="aspect-[4/5] w-full object-cover transition-transform duration-700 hover:scale-105"
+            className="aspect-[4/5] w-full object-cover"
           />
         </div>
-        <figcaption className="mt-3 flex items-center justify-between text-[11px] uppercase tracking-wider text-muted-foreground">
-          <span>ARVA.id</span>
-          <ArrowUpRight className="h-3.5 w-3.5 text-burgundy" />
-        </figcaption>
       </figure>
     </section>
   );
@@ -177,7 +174,7 @@ export function BackgroundSection() {
     <section className="container-arva py-16 md:py-24">
       {/* Title & Core Subtitle */}
       <div className="border-b border-border pb-8" data-reveal="up">
-        <p className="eyebrow mb-3">Slide 01 • Background Overview</p>
+        <p className="eyebrow mb-3">Background Overview</p>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-foreground">Background</h2>
         <p className="mt-4 font-serif text-lg sm:text-xl md:text-2xl text-burgundy leading-snug max-w-4xl">
           Resources and assets exist, but fragmented stakeholders, services, data, standards, and governance prevent an
@@ -191,7 +188,7 @@ export function BackgroundSection() {
         <div
           data-reveal="left"
           data-reveal-delay="100"
-          className="rounded-none bg-navy p-8 text-navy-foreground flex flex-col justify-between shadow-sm hover-card-elevate"
+          className="rounded-none bg-navy p-8 text-navy-foreground flex flex-col justify-between shadow-sm"
         >
           <div>
             <div className="flex items-center justify-between border-b border-navy-line pb-4">
@@ -221,7 +218,7 @@ export function BackgroundSection() {
 
         {/* Center: NOT EQUAL SIGN */}
         <div data-reveal="scale" data-reveal-delay="200" className="flex items-center justify-center py-4 md:py-0">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-cream text-burgundy font-serif text-3xl font-bold shadow-inner">
+          <div className="flex h-14 w-14 items-center justify-center rounded-full border border-border bg-cream text-burgundy font-serif text-3xl">
             ≠
           </div>
         </div>
@@ -230,12 +227,12 @@ export function BackgroundSection() {
         <div
           data-reveal="right"
           data-reveal-delay="100"
-          className="rounded-none border-2 border-burgundy/40 bg-card p-8 text-card-foreground flex flex-col justify-between shadow-sm hover-card-elevate"
+          className="rounded-none border-2 border-burgundy/40 bg-card p-8 text-card-foreground flex flex-col justify-between shadow-sm"
         >
           <div>
             <div className="flex items-center justify-between border-b border-border pb-4">
               <h3 className="font-serif text-2xl font-normal text-foreground">Ecosystem Capability</h3>
-              <Sparkles className="h-6 w-6 text-burgundy" />
+              <Handshake className="h-6 w-6 text-burgundy/70" />
             </div>
             {/* Interconnected Visual Network */}
             <div className="my-8 rounded bg-cream/40 border border-border/60 p-4">
@@ -243,9 +240,6 @@ export function BackgroundSection() {
                 <div className="bg-card border border-border p-2 font-medium text-burgundy">Strategic Alignment</div>
                 <div className="bg-card border border-border p-2 font-medium text-navy">Data Sharing</div>
                 <div className="bg-card border border-border p-2 font-medium text-burgundy">Standards</div>
-              </div>
-              <div className="mt-3 text-center text-[11px] text-muted-foreground uppercase tracking-widest font-semibold">
-                ⇄ Cross-Sector Value Creation ⇄
               </div>
             </div>
           </div>
@@ -261,7 +255,7 @@ export function BackgroundSection() {
         <div
           data-reveal="up"
           data-reveal-delay="100"
-          className="overflow-hidden border border-border bg-card shadow-sm hover-card-elevate"
+          className="overflow-hidden border border-border bg-card shadow-sm"
         >
           <div className="bg-navy px-6 py-4 text-navy-foreground flex items-center justify-between">
             <h4 className="font-sans text-xs font-semibold uppercase tracking-wider">Practical Challenges</h4>
@@ -281,7 +275,7 @@ export function BackgroundSection() {
         <div
           data-reveal="up"
           data-reveal-delay="200"
-          className="overflow-hidden border border-border bg-card shadow-sm hover-card-elevate"
+          className="overflow-hidden border border-border bg-card shadow-sm"
         >
           <div className="bg-burgundy px-6 py-4 text-accent-foreground flex items-center justify-between">
             <h4 className="font-sans text-xs font-semibold uppercase tracking-wider">Scientific Research Gap</h4>
@@ -342,7 +336,7 @@ export function BridgingSection() {
     <section className="bg-cream/60 py-16 md:py-24 border-y border-border">
       <div className="container-arva">
         <div data-reveal="up">
-          <p className="eyebrow mb-3">Slide 02 • Integration Matrix</p>
+          <p className="eyebrow mb-3">Integration Matrix</p>
           <h2 className="max-w-2xl text-3xl sm:text-4xl md:text-5xl font-serif leading-tight text-foreground">
             Bridging Resources to Ecosystem Functions
           </h2>
@@ -358,7 +352,7 @@ export function BridgingSection() {
           className="mt-12 hidden grid-cols-[1fr_3rem_1.4fr] items-center gap-6 border-b border-border pb-4 md:grid text-xs uppercase tracking-wider font-semibold"
         >
           <span className="text-navy">Resource Base</span>
-          <span className="text-center text-muted-foreground">⇄</span>
+          <span />
           <span className="text-burgundy">Potential Ecosystem Functions</span>
         </div>
 
@@ -373,7 +367,7 @@ export function BridgingSection() {
                 key={row.resource}
                 data-reveal="up"
                 data-reveal-delay={delays[idx % delays.length]}
-                className="grid gap-3 rounded-none border border-border bg-card p-4 transition-all duration-300 hover:border-burgundy/60 hover:shadow-sm hover-card-elevate md:grid-cols-[1fr_3rem_1.4fr] md:items-center md:gap-6 md:p-5"
+                className="grid gap-3 rounded-none border border-border bg-card p-4 transition-all duration-300  md:grid-cols-[1fr_3rem_1.4fr] md:items-center md:gap-6 md:p-5"
               >
                 {/* Left Card: Resource Base */}
                 <div className="flex items-center gap-4 bg-navy text-navy-foreground p-4">
@@ -388,7 +382,7 @@ export function BridgingSection() {
 
                 {/* Center Arrow */}
                 <div className="hidden md:flex justify-center text-burgundy">
-                  <ArrowRight className="h-5 w-5 animate-pulse" />
+                  <ArrowRight className="h-5 w-5" />
                 </div>
 
                 {/* Right Card: Potential Function */}
@@ -484,7 +478,7 @@ export function AcceleratorSection() {
 
       <div className="container-arva relative z-10">
         <div className="max-w-3xl" data-reveal="up">
-          <p className="eyebrow !text-cream mb-3">Slide 03 • Accelerated Growth Model</p>
+          <p className="eyebrow !text-cream mb-3">Accelerated Growth Model</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif tracking-tight text-cream leading-tight">
             Key Strategic Accelerator
           </h2>
@@ -504,7 +498,7 @@ export function AcceleratorSection() {
                 key={st.title}
                 data-reveal="up"
                 data-reveal-delay={delays[i % delays.length]}
-                className={`flex flex-col justify-between p-6 border transition-all duration-300 hover:-translate-y-1 ${isLast ? "bg-burgundy text-cream border-burgundy shadow-lg" : "bg-card text-foreground border-border"
+                className={`flex flex-col justify-between p-6 border transition-all duration-300 ${isLast ? "bg-burgundy text-cream border-burgundy shadow-lg" : "bg-card text-foreground border-border"
                   }`}
               >
                 <div>
@@ -552,6 +546,8 @@ export interface PillarItem {
   type: string;
   desc: string;
   icon: typeof Award;
+  /** Anchor on the portfolio page, when documented activities exist. */
+  portfolioId?: string;
 }
 
 export interface PillarData {
@@ -570,13 +566,13 @@ export const PILLARS: PillarData[] = [
       {
         title: "Ratings, Rankings & Awards",
         type: "Awards, Ranking Indices & Metrics",
-        desc: "Dokumentasi pemeringkatan, rekognisi, dan metrik daya saing industri",
+        desc: "Documentation of ratings, national/global recognition, and industry competitiveness metrics",
         icon: Award,
       },
       {
         title: "Research & Reports",
         type: "Research Publications & Whitepapers",
-        desc: "Publikasi riset analitis, whitepaper, dan laporan berkala industri",
+        desc: "Analytical research publications, whitepapers, and periodic industry reports",
         icon: BookOpen,
       },
     ],
@@ -588,20 +584,23 @@ export const PILLARS: PillarData[] = [
     items: [
       {
         title: "International Trade and Investment Summit",
+        portfolioId: "international-trade-and-investment-summit",
         type: "Summit Proceedings & Media Archive",
-        desc: "Dokumentasi forum summit, materi pleno, dan galeri konferensi",
+        desc: "Summit forum documentation, plenary materials, and high-level conference galleries",
         icon: Globe,
       },
       {
         title: "International Trade & Investment Expo and Business Forum",
+        portfolioId: "expo-and-business-forum",
         type: "Expo Photography & Business Dossier",
-        desc: "Dokumentasi eksibisi expo, katalog pameran, dan forum bisnis",
+        desc: "Expo exhibition photography, catalog documentation, and business forum proceedings",
         icon: Building2,
       },
       {
         title: "Trade and Business Directory",
+        portfolioId: "trade-and-business-directory",
         type: "Platform Database & Directory Profiles",
-        desc: "Basis data direktori bisnis, profil kemitraan, dan indeks terpadu",
+        desc: "Integrated business directory database, partnership profiles, and sectoral index",
         icon: Layers,
       },
     ],
@@ -613,221 +612,92 @@ export const PILLARS: PillarData[] = [
     items: [
       {
         title: "Capacity Building",
+        portfolioId: "capacity-building",
         type: "Human Capital Modules & Workshop Media",
-        desc: "Materi pengembangan talenta, lokakarya, dan arsip modul",
+        desc: "Talent development materials, workshop documentation, and training module archives",
         icon: GraduationCap,
       },
       {
         title: "Technical Assistance and Training",
+        portfolioId: "technical-assistance-and-training",
         type: "Technical Guides & Certification Files",
-        desc: "Panduan asistensi teknis, kurikulum pelatihan, dan sertifikasi",
+        desc: "Technical assistance guidelines, training curricula, and certification dossiers",
         icon: Cog,
       },
       {
         title: "Advocacy",
+        portfolioId: "advocacy",
         type: "Policy Papers & Strategic Alliance Briefs",
-        desc: "Kertas kerja kebijakan, naskah advokasi, dan dokumen aliansi strategis",
+        desc: "Policy working papers, advocacy submissions, and strategic alliance briefs",
         icon: Handshake,
       },
     ],
   },
 ];
 
-export function PillarDetailModal({
-  item,
-  pillarSubtitle,
-  pillarTitle,
-  onClose,
-}: {
-  item: PillarItem;
-  pillarSubtitle: string;
-  pillarTitle: string;
-  onClose: () => void;
-}) {
-  const ItemIcon = item.icon;
-
-  return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn"
-      onClick={onClose}
-    >
-      <div
-        className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto bg-card border border-border shadow-2xl p-6 sm:p-8 text-foreground"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Header */}
-        <div className="flex items-start justify-between border-b border-border/70 pb-4">
-          <div className="pr-4">
-            <p className="eyebrow !text-burgundy">
-              {pillarSubtitle} • {pillarTitle}
-            </p>
-            <h2 className="mt-1 font-serif text-2xl text-foreground font-normal leading-snug">
-              {item.title}
-            </h2>
-          </div>
-          <button
-            type="button"
-            onClick={onClose}
-            className="p-1 text-muted-foreground hover:text-burgundy transition-colors cursor-pointer shrink-0"
-            aria-label="Tutup"
-          >
-            <X className="h-5 w-5" />
-          </button>
-        </div>
-
-        {/* Minimalist Placeholder Slot for Photo / Paper */}
-        <div className="my-5 border border-dashed border-border/80 bg-cream/30 p-5 text-center">
-          <div className="mx-auto flex h-9 w-9 items-center justify-center bg-white border border-border/60 text-burgundy mb-2">
-            <ItemIcon className="h-4 w-4" />
-          </div>
-          <p className="font-sans text-xs font-semibold uppercase tracking-wider text-foreground">
-            {item.type}
-          </p>
-          <p className="mt-1 text-[11px] text-muted-foreground font-sans">
-            Slot kerangka kosong untuk foto dokumentasi, publikasi riset, atau berkas resmi mendatang.
-          </p>
-        </div>
-
-        {/* Dummy Content (Lorem Ipsum) */}
-        <div className="space-y-3 text-xs sm:text-sm text-muted-foreground leading-relaxed font-sans">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
-          <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-
-        {/* Minimalist Footer */}
-        <div className="mt-6 border-t border-border/70 pt-4 flex items-center justify-between">
-          <span className="text-[10px] uppercase tracking-wider text-muted-foreground font-mono">
-            ARVA.id • Draft Slot
-          </span>
-          <button
-            type="button"
-            onClick={onClose}
-            className="px-4 py-1.5 border border-border text-xs uppercase tracking-wider text-foreground hover:border-burgundy hover:text-burgundy transition-colors cursor-pointer"
-          >
-            Tutup
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export function PillarGrid() {
-  const [activeModalItem, setActiveModalItem] = useState<{
-    item: PillarItem;
-    pillarSubtitle: string;
-    pillarTitle: string;
-  } | null>(null);
-
-  const delays = ["100", "200", "300"];
-
   return (
-    <>
-      <div className="grid gap-8 md:grid-cols-3">
-        {PILLARS.map((p, idx) => (
-          <div
-            key={p.title}
-            data-reveal="up"
-            data-reveal-delay={delays[idx % delays.length]}
-            className="group flex flex-col justify-between border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:border-burgundy/60 hover:shadow-md hover-card-elevate"
-          >
-            <div>
-              {/* Pillar Header Meta */}
-              <div className="flex items-center justify-between border-b border-border pb-3">
-                <span className="eyebrow !text-burgundy">{p.subtitle}</span>
-                <span className="font-serif text-xs font-semibold text-muted-foreground">0{idx + 1}</span>
-              </div>
-
-              {/* Minimalist Illustration Icon */}
-              <div className="mt-4 mb-5 overflow-hidden border border-border/60 bg-white aspect-[16/10] relative flex items-center justify-center p-3">
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="h-full w-auto max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-
-              {/* Pillar Title */}
-              <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-foreground leading-relaxed min-h-[32px] border-b border-border/60 pb-3">
-                {p.title}
-              </h3>
-
-              {/* Point Templates / Kerangka Kosong Dokumen & Publikasi */}
-              <div className="mt-5 space-y-3">
-                {p.items.map((item, itemIdx) => {
-                  const ItemIcon = item.icon;
-                  return (
-                    <div
-                      key={item.title}
-                      onClick={() =>
-                        setActiveModalItem({
-                          item,
-                          pillarSubtitle: p.subtitle,
-                          pillarTitle: p.title,
-                        })
-                      }
-                      className="border border-border/80 bg-cream/30 p-3 transition-all duration-300 hover:border-burgundy/60 hover:bg-cream/60 hover:shadow-sm cursor-pointer group/item"
-                      title="Klik untuk membuka pratinjau dokumen / publikasi"
-                    >
-                      {/* Item Point Header */}
-                      <div className="flex items-start justify-between gap-2">
-                        <div className="flex items-start gap-2">
-                          <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center bg-burgundy/10 text-burgundy text-[9px] font-bold">
-                            0{itemIdx + 1}
-                          </span>
-                          <h4 className="font-sans text-xs font-semibold text-foreground leading-snug group-hover/item:text-burgundy transition-colors">
-                            {item.title}
-                          </h4>
-                        </div>
-                        <span className="text-[10px] text-burgundy font-serif font-semibold opacity-0 group-hover/item:opacity-100 transition-opacity">
-                          Buka ↗
-                        </span>
-                      </div>
-
-                      {/* Blank Frame / Media & Paper Placeholder Slot */}
-                      <div className="mt-2.5 flex items-center justify-between border border-dashed border-border/90 bg-white/80 px-2.5 py-2 transition-colors group-hover/item:border-burgundy/40 group-hover/item:bg-white">
-                        <div className="flex items-center gap-2.5 min-w-0">
-                          <div className="flex h-6 w-6 shrink-0 items-center justify-center bg-cream border border-border/60 text-burgundy">
-                            <ItemIcon className="h-3 w-3" />
-                          </div>
-                          <div className="min-w-0">
-                            <p className="truncate text-[10px] uppercase tracking-wider text-muted-foreground font-medium">
-                              {item.type}
-                            </p>
-                            <p className="truncate text-[9px] text-muted-foreground/70">
-                              {item.desc}
-                            </p>
-                          </div>
-                        </div>
-                        <span className="shrink-0 text-[8px] uppercase tracking-wider text-burgundy font-semibold px-1.5 py-0.5 bg-burgundy/5 border border-burgundy/15 ml-2">
-                          Buka Pratinjau
-                        </span>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+    <div className="grid gap-6 md:grid-cols-3">
+      {PILLARS.map((p, idx) => (
+        <article
+          key={p.title}
+          data-reveal="up"
+          data-reveal-delay={["100", "200", "300"][idx % 3]}
+          className="flex min-w-0 flex-col border border-border bg-card"
+        >
+          <div className="flex aspect-[2/1] items-center justify-center overflow-hidden border-b border-border bg-white p-4 md:aspect-[16/10] md:p-6">
+            <img src={p.image} alt="" aria-hidden className="h-full w-auto max-w-full object-contain" />
           </div>
-        ))}
-      </div>
-
-      {/* Pop-up Modal Detail when a point is clicked */}
-      {activeModalItem && (
-        <PillarDetailModal
-          item={activeModalItem.item}
-          pillarSubtitle={activeModalItem.pillarSubtitle}
-          pillarTitle={activeModalItem.pillarTitle}
-          onClose={() => setActiveModalItem(null)}
-        />
-      )}
-    </>
+          <div className="flex flex-1 flex-col p-6">
+            <p className="eyebrow">{p.subtitle}</p>
+            <h3 className="mt-2 font-sans text-xs font-bold uppercase tracking-wider text-foreground leading-relaxed">
+              {p.title}
+            </h3>
+            <ul className="mt-5 divide-y divide-border border-y border-border">
+              {p.items.map((item, itemIdx) => {
+                const count = item.portfolioId ? SUB_PILLAR_COUNTS[item.portfolioId] : 0;
+                const body = (
+                  <>
+                    <span className="w-6 shrink-0 font-serif text-sm text-burgundy">0{itemIdx + 1}</span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-sm text-foreground leading-snug">{item.title}</span>
+                      <span className="mt-1 block text-xs text-muted-foreground">
+                        {count ? `${count} ${count === 1 ? "activity" : "activities"}` : item.type}
+                      </span>
+                    </span>
+                    {count > 0 && (
+                      <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover/row:text-burgundy" />
+                    )}
+                  </>
+                );
+                return (
+                  <li key={item.title}>
+                    {count > 0 ? (
+                      <Link
+                        to={`/portfolio#${item.portfolioId}`}
+                        className="group/row flex items-start gap-3 py-3.5 hover:text-burgundy"
+                      >
+                        {body}
+                      </Link>
+                    ) : (
+                      <div className="flex items-start gap-3 py-3.5">{body}</div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+            {p.items.some((i) => i.portfolioId) && (
+              <Link
+                to={`/portfolio#pillar-${p.subtitle.slice(-2)}`}
+                className="mt-5 self-start text-xs font-semibold uppercase tracking-wider text-foreground underline decoration-border underline-offset-[6px] hover:text-burgundy hover:decoration-burgundy transition-colors"
+              >
+                See the full portfolio
+              </Link>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
   );
 }
 
@@ -843,7 +713,7 @@ export const CONTRIBUTION_POINTS = [
 
 export const CONTRIBUTION_ACTIVITIES = [
   {
-    title: "Talk Show Peluang & Tantangan Halal Tourism di Era Digital",
+    title: "Opportunities & Challenges of Halal Tourism in the Digital Era Talk Show",
     caption: "Strategic bilateral discussion with Tun Dr. Mahathir Mohamad on unlocking regional halal tourism and digital acceleration.",
     tag: "High-Level Dialogue",
     img: contribTalkshowMahathir,
@@ -918,16 +788,14 @@ export function ContributionSection() {
               Key Areas of Impact &amp; National Stewardship
             </h3>
             <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
-              Consistently actively contributing to national policies, global forums, and human capital empowerment
-              across the halal economy ecosystem.
+              Active contributor to national policy, global forums and human capital development across the halal
+              economy.
             </p>
           </div>
           <div className="lg:col-span-8 grid gap-3.5 sm:grid-cols-2">
             {CONTRIBUTION_POINTS.map((pt, idx) => (
               <div key={idx} className="flex items-start gap-3">
-                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-burgundy/10 text-burgundy text-[11px] font-bold">
-                  ✓
-                </span>
+                <span className="w-6 shrink-0 font-serif text-sm text-burgundy">0{idx + 1}</span>
                 <span className="text-xs sm:text-sm font-medium text-foreground/90 leading-snug">
                   {pt}
                 </span>
@@ -949,7 +817,6 @@ export function ContributionSection() {
               Documented Global Forums &amp; Engagements
             </h3>
           </div>
-          <span className="text-xs text-muted-foreground font-medium">8 Documented Engagements</span>
         </div>
 
         {/* 8 Separated Photos Grid */}
@@ -961,7 +828,7 @@ export function ContributionSection() {
                 key={act.title}
                 data-reveal="up"
                 data-reveal-delay={delays[idx % 4]}
-                className="group flex flex-col justify-between border border-border/80 bg-card p-4 shadow-sm transition-all duration-300 hover:border-burgundy/60 hover:shadow-lg hover:-translate-y-1 hover-card-elevate"
+                className="group flex flex-col justify-between border border-border/80 bg-card p-4 shadow-sm transition-all duration-300 hover:border-burgundy/60"
               >
                 <div>
                   {/* Photo Frame */}
@@ -969,7 +836,7 @@ export function ContributionSection() {
                     <img
                       src={act.img}
                       alt={act.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover"
                     />
                   </div>
 
@@ -1006,7 +873,7 @@ export function StrategicInitiativesSection() {
   return (
     <section className="container-arva py-16 md:py-24">
       <div className="border-b border-border pb-8" data-reveal="up">
-        <p className="eyebrow mb-3">Slide 04 • Long-Term Blueprint</p>
+        <p className="eyebrow mb-3">Long-Term Blueprint</p>
         <h2 className="max-w-4xl text-2xl uppercase leading-tight font-serif sm:text-3xl md:text-4xl text-foreground">
           Strategic Initiatives to Accelerate Sustainable Muslim-Friendly Tourism Industry and Destination Development
         </h2>
@@ -1115,7 +982,7 @@ export function CapabilitiesSection() {
               key={c.n}
               data-reveal="up"
               data-reveal-delay={delays[idx % delays.length]}
-              className="border border-border bg-card p-6 shadow-sm hover-card-elevate"
+              className="border border-border bg-card p-6 shadow-sm"
             >
               <p className="font-serif text-5xl text-burgundy font-light">{c.n}</p>
               <h3 className="mt-4 min-h-12 border-b border-border pb-4 font-sans text-xs font-bold uppercase tracking-wider text-foreground leading-relaxed">
@@ -1145,7 +1012,7 @@ export function CapabilitiesSection() {
                 src={d.img}
                 alt={d.title}
                 loading="lazy"
-                className="aspect-[16/11] w-full object-cover transition-transform duration-700 hover:scale-105"
+                className="aspect-[16/11] w-full object-cover"
               />
             </div>
             <div>
@@ -1187,7 +1054,7 @@ export function NetworkSection() {
           rel="noreferrer"
           data-reveal="up"
           data-reveal-delay="100"
-          className="group relative flex min-h-[380px] flex-col justify-between bg-card p-8 sm:p-10 border border-border/80 transition-all duration-300 hover:border-burgundy hover:shadow-xl hover:-translate-y-1 hover-card-elevate"
+          className="group relative flex min-h-[380px] flex-col justify-between bg-card p-8 sm:p-10 border border-border/80 transition-all duration-300 hover:border-burgundy"
         >
           {/* Top Tag & Indicator */}
           <div className="flex items-center justify-between border-b border-border/60 pb-4">
@@ -1208,7 +1075,7 @@ export function NetworkSection() {
               <img
                 src={sofyanCorpLogo}
                 alt="Sofyan Corp"
-                className="h-16 sm:h-18 w-auto max-w-[260px] object-contain transition-transform duration-300 group-hover:scale-105"
+                className="h-16 sm:h-18 w-auto max-w-[260px] object-contain transition-transform duration-300"
               />
             </div>
             <p className="mt-4 text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-md">
@@ -1235,7 +1102,7 @@ export function NetworkSection() {
           rel="noreferrer"
           data-reveal="up"
           data-reveal-delay="200"
-          className="group relative flex min-h-[380px] flex-col justify-between bg-card p-8 sm:p-10 border border-border/80 transition-all duration-300 hover:border-navy hover:shadow-xl hover:-translate-y-1 hover-card-elevate"
+          className="group relative flex min-h-[380px] flex-col justify-between bg-card p-8 sm:p-10 border border-border/80 transition-all duration-300 hover:border-navy"
         >
           {/* Top Tag & Indicator */}
           <div className="flex items-center justify-between border-b border-border/60 pb-4">
@@ -1256,7 +1123,7 @@ export function NetworkSection() {
               <img
                 src={groupOfArvaLogo}
                 alt="Group of Arva"
-                className="h-13 sm:h-16 w-auto max-w-[320px] object-contain transition-transform duration-300 group-hover:scale-105"
+                className="h-13 sm:h-16 w-auto max-w-[320px] object-contain transition-transform duration-300"
               />
             </div>
             <p className="mt-4 text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-md">
@@ -1348,7 +1215,7 @@ export function AcknowledgementSection() {
               key={item.title}
               data-reveal="up"
               data-reveal-delay={delays[idx % 3]}
-              className="group flex flex-col justify-between border border-border/80 bg-card p-5 sm:p-6 shadow-sm transition-all duration-300 hover:border-burgundy/60 hover:shadow-lg hover:-translate-y-1 hover-card-elevate"
+              className="group flex flex-col justify-between border border-border/80 bg-card p-5 sm:p-6 shadow-sm transition-all duration-300 hover:border-burgundy/60"
             >
               <div>
                 <div className="flex items-center justify-between border-b border-border/60 pb-3">
@@ -1359,7 +1226,7 @@ export function AcknowledgementSection() {
                   <img
                     src={item.img}
                     alt={item.title}
-                    className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${item.fit}`}
+                    className={`w-full h-full ${item.fit}`}
                   />
                 </div>
                 <h3 className="mt-5 font-serif text-lg sm:text-xl text-foreground leading-snug">{item.title}</h3>
@@ -1370,115 +1237,6 @@ export function AcknowledgementSection() {
             </div>
           );
         })}
-      </div>
-    </section>
-  );
-}
-
-/* =========================================================================
-   9. CONTACT SECTION (Slide 14 of booklet)
-   ========================================================================= */
-export function ContactSection() {
-  return (
-    <section id="contact" className="bg-navy py-16 text-navy-foreground md:py-24 border-t border-border">
-      <div className="container-arva">
-        {/* Header matching Slide 14 */}
-        <div className="text-center max-w-2xl mx-auto pb-12 border-b border-navy-line" data-reveal="up">
-          <Logo className="mx-auto h-12 md:h-14 brightness-200" />
-          <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-serif text-cream">Contact</h2>
-          <p className="mt-3 text-xs uppercase tracking-widest text-cream/70">ARVA.id</p>
-        </div>
-
-        {/* Contact Info Columns matching Slide 14 */}
-        <div className="mt-12 grid gap-10 md:grid-cols-2 md:divide-x md:divide-navy-line">
-          {/* Left Column: Office & Telephones */}
-          <div className="space-y-6 md:pr-10" data-reveal="left" data-reveal-delay="100">
-            <div className="flex items-center gap-3 text-cream">
-              <Building2 className="h-5 w-5 text-cream/80" />
-              <h3 className="font-serif text-2xl text-cream font-normal">Head Office</h3>
-            </div>
-            <div className="space-y-3 text-sm text-cream/90">
-              <div className="flex items-start gap-3">
-                <Phone className="h-4 w-4 text-cream/60 shrink-0 mt-1" />
-                <div>
-                  <p className="text-[10px] uppercase tracking-wider text-cream/60">Telephone</p>
-                  <p className="font-medium">
-                    <a href="tel:0213905971" className="hover:text-cream transition-colors underline-offset-4 hover:underline">
-                      021-3905971
-                    </a>{" "}
-                    /{" "}
-                    <a href="tel:0218905972" className="hover:text-cream transition-colors underline-offset-4 hover:underline">
-                      021-8905972
-                    </a>
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <Phone className="h-4 w-4 text-cream/60 shrink-0 mt-1" />
-                <div>
-                  <p className="text-[10px] uppercase tracking-wider text-cream/60">Office Mobile</p>
-                  <p className="font-medium">
-                    <a href="tel:085215251984" className="hover:text-cream transition-colors underline-offset-4 hover:underline">
-                      085215251984
-                    </a>{" "}
-                    /{" "}
-                    <a href="tel:08121922121" className="hover:text-cream transition-colors underline-offset-4 hover:underline">
-                      0812-1922-121
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Web, Email & Executive Contact */}
-          <div className="space-y-6 md:pl-10" data-reveal="right" data-reveal-delay="200">
-            <div className="flex items-center gap-3 text-cream">
-              <Globe className="h-5 w-5 text-cream/80" />
-              <h3 className="font-serif text-2xl text-cream font-normal">Online &amp; Inquiries</h3>
-            </div>
-            <div className="space-y-4 text-sm text-cream/90">
-              <div>
-                <p className="text-[10px] uppercase tracking-wider text-cream/60">Official Website</p>
-                <a
-                  href="https://arva.website"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-serif text-2xl text-cream hover:text-cream/80 underline underline-offset-4 transition-colors"
-                >
-                  arva.website
-                </a>
-              </div>
-              <div className="flex items-start gap-3">
-                <Mail className="h-4 w-4 text-cream/60 shrink-0 mt-1" />
-                <div>
-                  <p className="text-[10px] uppercase tracking-wider text-cream/60">Executive Email</p>
-                  <a
-                    href="mailto:riyanto.Sofyan@sofyancorp.com"
-                    className="hover:text-cream transition-colors font-medium underline-offset-4 hover:underline"
-                  >
-                    riyanto.Sofyan@sofyancorp.com
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <Phone className="h-4 w-4 text-cream/60 shrink-0 mt-1" />
-                <div>
-                  <p className="text-[10px] uppercase tracking-wider text-cream/60">Direct Inquiries Mobile</p>
-                  <p className="font-medium">
-                    <a href="tel:0811903505" className="hover:text-cream transition-colors underline-offset-4 hover:underline">
-                      0811-903-505
-                    </a>{" "}
-                    /{" "}
-                    <a href="tel:0816808708" className="hover:text-cream transition-colors underline-offset-4 hover:underline">
-                      0816-808-708
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

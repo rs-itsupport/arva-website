@@ -17,7 +17,7 @@ export function BackgroundPage() {
       {/* Narrative Page Introduction */}
       <PageIntro
         title="Background & Strategic Framework"
-        subtitle="A comprehensive narrative based on the ARVA Corporate Profile: Addressing fragmented resources, bridging ecosystem functions, accelerating strategic opportunities, and executing the Strategic Roadmap 2026–2045."
+        subtitle="Why ARVA exists, how existing resources can work as one ecosystem, and the roadmap we are following through 2045."
       />
 
       {/* Slide 01: Background (Distributed Resources ≠ Ecosystem Capability) */}

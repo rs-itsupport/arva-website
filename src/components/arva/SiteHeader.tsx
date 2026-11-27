@@ -5,7 +5,8 @@ import logo from "@/assets/arva-logo.png";
 
 export const NAV = [
   { to: "/", label: "Home" },
-  { to: "/background", label: "Background" },
+  { to: "/capabilities", label: "Capabilities" },
+  { to: "/portfolio", label: "Portfolio" },
   { to: "/contact", label: "Contact" },
 ] as const;
 

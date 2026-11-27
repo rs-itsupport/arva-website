@@ -8,17 +8,10 @@ Repository: [https://github.com/rs-itsupport/arva-website](https://github.com/rs
 
 ---
 
-## 📌 Status Terkini Project: *Under Construction*
+## 📌 Status Terkini Project
 
-Saat ini website berada dalam status **`Website Under Construction`** untuk pengunjung publik. 
-
-**Alasan:**  
-Beberapa item konten, dokumentasi visual forum bilateral/internasional, dan plakat penghargaan (*acknowledgement*) masih dalam tahap penyesuaian materi terbaru dari manajemen.
-
-> 💡 **Untuk Pengembang & Tim Internal:**  
-> Anda tetap dapat melihat dan menjelajahi seluruh halaman draft website lengkap dengan cara mengaktifkan **Mode Pratinjau**:
-> - Klik tombol **"Pratinjau Draft"** di pojok kanan atas / bawah halaman pengumuman, atau
-> - Buka URL lokal langsung dengan parameter query: `http://localhost:5174/?preview=true` (atau port dev server Anda).
+Seluruh halaman (Home, Background, Portfolio, Contact) tampil langsung tanpa mode pratinjau.
+Foto portofolio ada di `src/assets/portfolio/<nama-kegiatan>/`, datanya di `src/components/arva/portfolio.ts`.
 
 ---
 
@@ -100,7 +93,6 @@ website-arva/
 │   │   ├── Background.tsx           # Halaman Background & Roadmap 2026-2045
 │   │   ├── Capabilities.tsx         # Halaman 3 Kapabilitas Utama ARVA
 │   │   ├── Contact.tsx              # Halaman kontak resmi eksekutif
-│   │   ├── UnderConstruction.tsx    # Halaman pengumuman publik saat ini
 │   │   └── NotFound.tsx             # Halaman 404
 │   │
 │   ├── App.tsx                      # Root App component, konfigurasi rute & sakelar Preview Mode
